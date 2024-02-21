@@ -1,28 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
 body{
-    background-color: cornsilk;
+    background: #2F5061;
 }
 
 h1{
     text-align: center;
 }
 
+.wrapper{
+    margin: 50px 50px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, 265px);
+}
+
+
+@media only screen and (max-width: 340px){
+    .wrapper{
+        margin: 50px 30px;
+        grid-template-columns: repeat(auto-fill, 250px);
+    }
+}
+
+
+
+
+
+.wrapper li{
+    height: 250px;
+
+    list-style: none;
+
+    background-color: #F4EAE6;
+
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 15px 20px 20px;
+}
+
+.wrapper .add-box{
+    background-color: #E57F84;
+}
+
+.add-box, .icon, .bottom-content, .popup, header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-box{
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.add-box .icon{
+    height: 88px;
+    width: 88px;
+
+    font-size: 60px;
+    font-weight: bolder;
+
+    justify-content: center;
+
+    color: black;
+}
+
+.add-box p{
+    color: black;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.wrapper .note{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note p{
+    font-size: 22px;
+    font-weight: 500;
+    color: black;
+}
+
+.note span{
+    display: block;
+    margin-top: 5px;
+    color: black;
+    font-size: 16px;
+}
+
+.bottom-content span{
+    color: black;
+    font-size: 14px;
+}
+
+.bottom-content .settings i{
+    color: black;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 0 10px;
+    
+    
+}
 
 .popup-box{
     position: fixed;
     top: 0;
     left: 0;
-
     height: 100%;
-    width: 100%;
-
     z-index: 2;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-
-    padding: 8px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .popup-box .popup{
@@ -36,59 +132,85 @@ h1{
     transform: translate(-50%, -50%);
 }
 
+.popup-box, .popup-box .popup{
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    z-index: -1;
+}
+
+.popup-box.show, .popup-box .popup{
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 3;
+}
+
 .popup .content{
     width: calc(100% - 15px);
+    border-radius: 5px;
+    background: #F4EAE6;
+}
+
+.popup .content header{
+    padding: 15px 25px;
+    border-bottom: 2px solid black;
+}
+
+.content header p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content header i{
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content form{
+    margin: 15px 25px 35px;
+}
+
+.content form .row{
+    margin-bottom: 20px;
+}
+
+label{
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.content form :where(input, textarea) {
+    width: 100%;
+    height: 50px;
+
+    outline: none;
+    font-size: 17px;
+    padding: 0 15px;
+
+    border: 2px solid black;
+    border-radius: 5px;
+    
+}
+
+.content form textarea{
+    height: 150px;
+    padding: 8px 15px;
+    resize: none;
+}
+
+.content form button{
+    width: 100%;
+    height: 50px;
 
     border: 2px solid black;
     border-radius: 5px;
 
-    padding: 5px;
-    background: #fff;
-}
+    color: black;
 
-.content header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-header > i{
-    font-size: 20px;
-}
-
-header span{
-    font-weight: bolder;
-}
-
-.content form{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-input{
-    width: 80%;
-    padding: 5px;
-    border: 2px solid black;
-    border-radius: 10px;
-}
-
-textarea{
-    width: 80%;
-    border: 2px solid black;
-    border-radius: 10px;
-}
-
-button{
-    border: 2px solid black;
-    border-radius: 10px;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    margin: 10px auto;
-}
-
-label{
-    font-weight: bolder;
+    font-size: 17px;
+    background: #4297A0;
 }
