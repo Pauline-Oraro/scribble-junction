@@ -3,7 +3,7 @@
 ![scribble](https://github.com/Pauline-Oraro/scribble-junction/blob/master/scribble.PNG?raw=true)
 
 ## Demo
-You can click [HERE]() to see the live demo.
+You can click [HERE](https://pauline-oraro.github.io/scribble-junction/) to see the live demo.
 
 ## Tech stack
 - HTML
